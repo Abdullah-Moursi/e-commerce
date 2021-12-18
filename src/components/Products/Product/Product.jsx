@@ -4,11 +4,8 @@ import React from 'react'
 
 import useStyles from './styles';
 
-const Product = ({product}) => {
+const Product = ({product, onAddToCart}) => {
     const classes = useStyles();
-
-    console.log(product)
-
 
     return (
         <Card className={classes.root}>
@@ -25,7 +22,7 @@ const Product = ({product}) => {
                 <Typography dangerouslySetInnerHTML={{ __html: product.description}} variant="body2" color="textSecondary"/>
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to cart">
+                <IconButton onClick={() => onAddToCart(product.id, 1)} aria-label="Add to cart">
                     <AddShoppingCart />
                 </IconButton>
             </CardActions>
